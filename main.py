@@ -1,21 +1,20 @@
-print('Enter a number')
-
 def collatz(num):
-	print(str(num))
-	if num == 1:
-		return
-	elif num % 2 == 0 and num != 0 :
-		return collatz(num // 2)
+	if num % 2 == 0 and num != 0:
+		num = num // 2
 	else:
-		return collatz(num * 3 + 1)
-	print('Please enter a number')
+		num = num * 3 + 1
+	print(num)
+	return num
 
 def main():
-	try:
-		num = int(input())
-		collatz(num)
-	except:
-		print('Please enter a number')
-		main()
+	while True:
+		try:
+			print('Enter a valid integer')
+			num = int(input())
+			break
+		except ValueError:
+			print('Invalid input please try again.')
+	while num != 1:
+		num = collatz(num)
 
 main()
