@@ -1,5 +1,5 @@
 print('Enter a number')
-num = int(input())
+
 def collatz(num):
 	print(str(num))
 	if(num == 1):
@@ -8,5 +8,14 @@ def collatz(num):
 		return collatz(num // 2)
 	else:
 		return collatz(num * 3 + 1)
+	print('Please enter a number')
 
-collatz(num)
+def main():
+	try:
+		num = int(input())
+		collatz(num)
+	except:
+		print('Please enter a number')
+		main()
+
+main()
